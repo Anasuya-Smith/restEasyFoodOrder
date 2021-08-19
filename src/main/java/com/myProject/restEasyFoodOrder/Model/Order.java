@@ -1,4 +1,6 @@
-package com.myProject.restEasyFoodOrder;
+package com.myProject.restEasyFoodOrder.Model;
+
+import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,31 +8,33 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class custOrder {
+public class Order {
 	
 	private Integer orderID;
+	private Date orderDate;
 	private Integer dishID;
 	private String vendorName;
 	private String dishName;
 	private float dishPrice;
 	private Integer custOrderQuantity;
-	private float custOrderTotal;
+	private float orderAmount;
 	
 	// Super constructor
-	public custOrder() {
+	public Order() {
 	}
 
 	// Constructor
-	public custOrder(Integer orderID, Integer dishID, String vendorName, String dishName, float dishPrice,
-			Integer custOrderQuantity, float custOrderTotal) {
-		super();
+	public Order(Integer orderID, Date orderDate, Integer dishID, String vendorName, String dishName, float dishPrice,
+			Integer custOrderQuantity, float orderAmount) {
+		
 		this.orderID = orderID;
+		this.orderDate = orderDate;
 		this.dishID = dishID;
 		this.vendorName = vendorName;
 		this.dishName = dishName;
 		this.dishPrice = dishPrice;
 		this.custOrderQuantity = custOrderQuantity;
-		this.custOrderTotal = custOrderTotal;
+		this.orderAmount = orderAmount;
 	}
 
 	// Getter and Setter methods
@@ -43,6 +47,14 @@ public class custOrder {
 
 	public void setOrderID(Integer orderID) {
 		this.orderID = orderID;
+	}
+	
+	public Date getOrderDate() {
+		return orderDate;
+	}
+
+	public void setOrderDate(Date orderDate) {
+		this.orderDate = orderDate;
 	}
 
 	public Integer getDishID() {
@@ -85,12 +97,12 @@ public class custOrder {
 		this.custOrderQuantity = custOrderQuantity;
 	}
 
-	public float getCustOrderTotal() {
-		return custOrderTotal;
+	public float getorderAmount() {
+		return orderAmount;
 	}
 
-	public void setCustOrderTotal(float custOrderTotal) {
-		this.custOrderTotal = custOrderTotal;
+	public void setorderAmount(float orderAmount) {
+		this.orderAmount = orderAmount;
 	}
 	
 }

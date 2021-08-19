@@ -1,4 +1,4 @@
-package com.myProject.restEasyFoodOrder;
+package com.myProject.restEasyFoodOrder.Model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

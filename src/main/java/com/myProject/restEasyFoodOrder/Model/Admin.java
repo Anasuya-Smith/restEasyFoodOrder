@@ -1,4 +1,4 @@
-package com.myProject.restEasyFoodOrder;
+package com.myProject.restEasyFoodOrder.Model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +9,7 @@ import javax.persistence.Id;
 public class Admin {
 	private Integer id;
 	private Boolean vendor;
+	private Boolean customer;
 	private String userName;
 	private String password;
 	
@@ -17,10 +18,11 @@ public class Admin {
 	}
 	
 	// Constructor with fields
-	public Admin(Integer id, Boolean vendor, String userName, String password) {
+	public Admin(Integer id, Boolean vendor, Boolean customer, String userName, String password) {
 		
 		this.id = id;
 		this.vendor = vendor;
+		this.customer = customer;
 		this.userName = userName;
 		this.password = password;
 	}
@@ -43,6 +45,14 @@ public class Admin {
 
 	public void setVendor(Boolean vendor) {
 		this.vendor = vendor;
+	}
+	
+	public Boolean getCustomer() {
+		return customer;
+	}
+	
+	public void setCustomer(Boolean customer) {
+		this.customer = customer;
 	}
 
 	public String getUserName() {
