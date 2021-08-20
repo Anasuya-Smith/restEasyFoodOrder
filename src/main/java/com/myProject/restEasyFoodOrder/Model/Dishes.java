@@ -1,5 +1,6 @@
 package com.myProject.restEasyFoodOrder.Model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,8 +9,15 @@ import javax.persistence.Id;
 @Entity
 public class Dishes {
 	
+	@Column(name = "dishid")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer dishID;
+	
+	@Id
+	@Column(name = "dish_name")
 	private String dishName;
+	
+	@Column(name = "dish_cal")
 	private float dishCal;
 	
 	// Super constructor
@@ -26,8 +34,7 @@ public class Dishes {
 
 	// Getter and Setter functions
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	public Integer getDishID() {
 		return dishID;
 	}
@@ -50,6 +57,16 @@ public class Dishes {
 
 	public void setDishCal(float dishCal) {
 		this.dishCal = dishCal;
+	}
+	
+	@Override
+	public String toString() {
+		return "Dishes{" +
+				"dishID = " + dishID + 
+				"dishName = " + dishName + '\'' +
+				"dishCal = " + dishCal + '\'' +
+				"}";
+				
 	}
 	
 	

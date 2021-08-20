@@ -1,14 +1,26 @@
 package com.myProject.restEasyFoodOrder.Model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Vendor {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "vendorid")
 	private Integer vendorID;
+	
+	@Column(name = "vendor_name")
 	private String vendorName;
+	
+	@Column(name = "dish_name")
 	private String dishName;
+	
+	@Column(name = "vendor_dish_price")
 	private float vendorDishPrice;
 	
 	// Super constructor
@@ -17,7 +29,7 @@ public class Vendor {
 	
 	// Constructor
 	public Vendor(Integer vendorID, String vendorName, String dishName, float vendorDishPrice) {
-		super();
+		
 		this.vendorID = vendorID;
 		this.vendorName = vendorName;
 		this.dishName = dishName;
@@ -26,7 +38,6 @@ public class Vendor {
 
 	// Getter and Setter methods
 	
-	@Id
 	public Integer getVendorID() {
 		return vendorID;
 	}
@@ -59,5 +70,14 @@ public class Vendor {
 		this.vendorDishPrice = vendorDishPrice;
 	}
 	
+	@Override
+    public String toString() {
+        return "Vendor{" +
+                "vendorId=" + vendorID +
+                ", vendorName='" + vendorName + '\'' +
+                ", dishName='" + dishName + '\'' +
+                ", dishPrice='" + vendorDishPrice + '\'' +
+                '}';
+    }
 	
 }
