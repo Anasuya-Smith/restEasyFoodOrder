@@ -8,7 +8,10 @@ import javax.persistence.Id;
 @Entity
 public class Dishes {
 	
+	
 	private Integer dishID;
+	
+	@Id
 	private String dishName;
 	private float dishCal;
 	
@@ -26,7 +29,7 @@ public class Dishes {
 
 	// Getter and Setter functions
 	
-	@Id
+	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getDishID() {
 		return dishID;

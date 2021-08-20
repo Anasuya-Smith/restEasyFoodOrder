@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.myProject.restEasyFoodOrder.Model.Admin;
@@ -45,11 +47,11 @@ public class AdminController {
 		}
 	}
 	
-	@PostMapping("/Admin/Register")
+	@RequestMapping(value = "/Admin/Register", method = RequestMethod.POST)
 	public void add(@RequestBody Admin userDetail) {
 		try {
 			adminService.save(userDetail);
-			System.out.println("Success");
+			//System.out.println("Success");
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -59,7 +61,11 @@ public class AdminController {
 	public ResponseEntity<?> update(@RequestBody Admin userDetail, @PathVariable Integer id) {
 		try {
 			Admin existUser = adminService.get(id);
-			adminService.save(userDetail);
+			existUser.setUserName(userDetail.getUserName());
+			existUser.setPassword(userDetail.getPassword());
+			existUser.setCustomer(userDetail.getCustomer());
+			existUser.setVendor(userDetail.getVendor());
+			adminService.save(existUser);
 			return new ResponseEntity<>(HttpStatus.OK);
 		} catch (NoSuchElementException e) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
