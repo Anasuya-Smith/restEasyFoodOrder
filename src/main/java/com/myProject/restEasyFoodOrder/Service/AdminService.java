@@ -28,8 +28,10 @@ public class AdminService {
 		return adminRepo.findById(id).get();
 	}
 	
-	public void delete(Integer id) {
+	public Admin delete(Integer id) {
+		Admin deletedUser = adminRepo.findById(id).get();
 		adminRepo.deleteById(id);
+		return deletedUser;
 	}
 
 }
