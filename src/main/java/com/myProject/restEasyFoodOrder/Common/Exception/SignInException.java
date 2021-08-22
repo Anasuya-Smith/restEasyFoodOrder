@@ -3,15 +3,14 @@ package com.myProject.restEasyFoodOrder.Common.Exception;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 
-public class SignOutException extends Exception {
+public class SignInException extends Exception {
 	
-	// Default serial version ID
-	private static final long serialVersionUID = 5L;
+	private static final long serialVersionUID = 3L;
 	
 	private String code;
 	private String errorMessage;
 	
-	public SignOutException(String code, String errorMessage) {
+	public SignInException(String code, String errorMessage) {
 		
 		this.code = code;
 		this.errorMessage = errorMessage;

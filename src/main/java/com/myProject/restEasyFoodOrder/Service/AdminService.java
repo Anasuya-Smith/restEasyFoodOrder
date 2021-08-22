@@ -20,8 +20,8 @@ public class AdminService {
 		return adminRepo.findAll();
 	}
 	
-	public void save(Admin user) {
-		adminRepo.save(user);
+	public Admin save(Admin user) {
+		return adminRepo.save(user);
 	}
 	
 	public Admin get(Integer id) {
@@ -34,4 +34,9 @@ public class AdminService {
 		return deletedUser;
 	}
 
+	public Admin getUser(Admin userName) {
+		return adminRepo.findById(userName.getId()).get();
+	}
+
+	
 }

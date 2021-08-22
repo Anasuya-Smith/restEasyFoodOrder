@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Orders {
@@ -22,6 +25,7 @@ public class Orders {
 	@Column(name = "dishid")
 	private Integer dishID;
 	
+	//@JoinColumn(name = "customer_id")
 	@Column(name = "customer_id")
 	private Integer customerID;
 	
@@ -39,7 +43,14 @@ public class Orders {
 	
 	@Column(name = "order_amount")
 	private float orderAmount;
+/*	
+	@ManyToOne
+	@JoinColumn(name = "dish_name")
+	private Dishes dishes;
 	
+	@OneToOne(mappedBy = "orders")
+	private Admin users;
+*/	
 	// Super constructor
 	public Orders() {
 	}
