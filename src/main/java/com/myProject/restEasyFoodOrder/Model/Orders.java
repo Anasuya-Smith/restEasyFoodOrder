@@ -38,8 +38,8 @@ public class Orders {
 	@Column(name = "dish_price")
 	private float dishPrice;
 	
-	@Column(name = "cust_order_quantity")
-	private Integer custOrderQuantity;
+	@Column(name = "userscust_order_quantity")
+	private Integer userscustOrderQuantity;
 	
 	@Column(name = "order_amount")
 	private float orderAmount;
@@ -57,7 +57,7 @@ public class Orders {
 
 	// Constructor
 	public Orders(Integer orderID, Date orderDate, Integer dishID, Integer customerID, String vendorName,
-			String dishName, float dishPrice, Integer custOrderQuantity, float orderAmount) {
+			String dishName, float dishPrice, Integer userscustOrderQuantity, float orderAmount) {
 		
 		this.orderID = orderID;
 		this.orderDate = orderDate;
@@ -66,7 +66,7 @@ public class Orders {
 		this.vendorName = vendorName;
 		this.dishName = dishName;
 		this.dishPrice = dishPrice;
-		this.custOrderQuantity = custOrderQuantity;
+		this.userscustOrderQuantity = userscustOrderQuantity;
 		this.orderAmount = orderAmount;
 	}
 
@@ -137,11 +137,11 @@ public class Orders {
 	}
 
 	public Integer getCustOrderQuantity() {
-		return custOrderQuantity;
+		return userscustOrderQuantity;
 	}
 
 	public void setCustOrderQuantity(Integer custOrderQuantity) {
-		this.custOrderQuantity = custOrderQuantity;
+		this.userscustOrderQuantity = custOrderQuantity;
 	}
 	
 	@Override
@@ -154,7 +154,7 @@ public class Orders {
                 ", vendorName='" + vendorName + '\'' +
                 ", dishName='" + dishName + '\'' +
                 ", dishPrice='" + dishPrice + '\'' +
-                ", orderQuantity='" + custOrderQuantity + '\'' +
+                ", orderQuantity='" + userscustOrderQuantity + '\'' +
                 ", orderAmount='" + orderAmount + '\'' +
                 '}';
     }

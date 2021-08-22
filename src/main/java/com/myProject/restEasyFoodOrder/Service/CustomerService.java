@@ -43,9 +43,9 @@ public class CustomerService {
 		// TODO Auto-generated method stub
 		//OrdersDao ordersDao = new OrdersDao();
 		//return ordersDao.createOrder(orderDetail);
-		Orders newOrder = customerRepo.save(orderDetail);
+		//Orders newOrder = customerRepo.save(orderDetail);
 		
-		return newOrder;
+		return customerRepo.save(orderDetail);
 	}
 	
 	

@@ -20,8 +20,8 @@ public class VendorController {
 	@Autowired
 	private AdminService adminService;
 	
-	@Autowired
-	private AdminDao adminDao;
+	//@Autowired
+	//private AdminDao adminDao;
 	
 	@Autowired
 	private VendorService vendorService;
@@ -29,12 +29,14 @@ public class VendorController {
 	@RequestMapping(value = "/Vendor/SignIn", produces = "application/json", method = RequestMethod.POST)
 	public Vendor add(@RequestBody Vendor vendorDetail) {
 		try {
-			Admin existUser = adminService.getUser(adminDao.findByUserName(vendorDetail.getVendorName()));
+			//Admin existUser = adminService.getUser(adminDao.findByUserName(vendorDetail.getVendorName()));
+			Admin existUser = adminService.getUser(vendorDetail.getVendorName());
 			if (existUser != null) {
 				Vendor vendor = new Vendor();
 				vendor.setVendorID(existUser.getId());
 				vendor.setVendorName(existUser.getUserName());
 				vendor.setDishName(vendorDetail.getDishName());
+				vendor.setDishCal(vendorDetail.getDishCal());
 				vendor.setVendorDishPrice(vendorDetail.getVendorDishPrice());
 				
 				Dishes dishes = new Dishes();

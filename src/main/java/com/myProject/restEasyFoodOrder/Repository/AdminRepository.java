@@ -5,5 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.myProject.restEasyFoodOrder.Model.Admin;
 
 public interface AdminRepository extends JpaRepository<Admin, Integer>{
+	
+	public Admin findByUserName(String userName);
 
 }
