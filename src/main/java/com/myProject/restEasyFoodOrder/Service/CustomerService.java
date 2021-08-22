@@ -5,8 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.myProject.restEasyFoodOrder.Common.Exception.OrderException;
+import com.myProject.restEasyFoodOrder.Dao.OrdersDao;
 import com.myProject.restEasyFoodOrder.Model.Dishes;
-import com.myProject.restEasyFoodOrder.Model.Order;
+import com.myProject.restEasyFoodOrder.Model.Orders;
+import com.myProject.restEasyFoodOrder.Model.Orders;
 import com.myProject.restEasyFoodOrder.Repository.CustomerRepository;
 import com.myProject.restEasyFoodOrder.Repository.DishesRepository;
 import com.myProject.restEasyFoodOrder.Repository.UserRepository;
@@ -18,19 +21,36 @@ public class CustomerService {
 	private CustomerRepository customerRepo;
 	
 	@Autowired
-	private UserRepository userRepo;
+	private DishesRepository dishesRepo;
 	
 	@Autowired
-	private DishesRepository dishesRepo;
+	private UserRepository userRepo;
+	
+	//@Autowired
+	//private OrdersDao ordersDao;
 
-
-	public List<Order> listAllOrders() {
+	public List<Orders> listAllOrders() {
 		// TODO Auto-generated method stub
 		return customerRepo.findAll();
 	}
+
+	public List<Dishes> listAllDishes() {
+		// TODO Auto-generated method stub
+		return dishesRepo.findAll();
+	}
+
+	public Orders save(Orders orderDetail) throws OrderException {
+		// TODO Auto-generated method stub
+		//OrdersDao ordersDao = new OrdersDao();
+		//return ordersDao.createOrder(orderDetail);
+		//Orders newOrder = customerRepo.save(orderDetail);
+		
+		return customerRepo.save(orderDetail);
+	}
 	
-	public Dishes getDish(String dishName) {
-		return dishesRepo.getById(dishName);
+	
+	public Orders getOrder(Integer orderID) {
+		return customerRepo.findById(orderID).orElseGet(Orders::new);
 	}
 	
 	
